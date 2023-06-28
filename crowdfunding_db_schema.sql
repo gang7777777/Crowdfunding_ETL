@@ -2,7 +2,7 @@
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
 
-CREATE TABLE "Campaign" (
+CREATE TABLE "campaign" (
     "cf_id" INT   NOT NULL,
     "contact_id" INT   NOT NULL,
     "company_name" VARCHAR   NOT NULL,
@@ -19,38 +19,38 @@ CREATE TABLE "Campaign" (
     "subcategory_id" INT   NOT NULL
 );
 
-CREATE TABLE "Contact" (
+CREATE TABLE "contact" (
     "contact_id" INT   NOT NULL,
     "first_name" VARCHAR   NOT NULL,
     "last_name" VARCHAR   NOT NULL,
     "email" VARCHAR   NOT NULL,
-    CONSTRAINT "pk_Contact" PRIMARY KEY (
+    CONSTRAINT "pk_contact" PRIMARY KEY (
         "contact_id"
      )
 );
 
-CREATE TABLE "Category" (
+CREATE TABLE "category" (
     "category_id" INT   NOT NULL,
     "category" VARCHAR   NOT NULL,
-    CONSTRAINT "pk_Category" PRIMARY KEY (
+    CONSTRAINT "pk_category" PRIMARY KEY (
         "category_id"
      )
 );
 
-CREATE TABLE "Sub_Category" (
-    "subcateogry_id" INT   NOT NULL,
+CREATE TABLE "sub_category" (
+    "subcategory_id" INT   NOT NULL,
     "subcategory" VARCHAR   NOT NULL,
-    CONSTRAINT "pk_Sub_Category" PRIMARY KEY (
-        "subcateogry_id"
+    CONSTRAINT "pk_sub_category" PRIMARY KEY (
+        "subcategory_id"
      )
 );
 
-ALTER TABLE "Campaign" ADD CONSTRAINT "fk_Campaign_contact_id" FOREIGN KEY("contact_id")
-REFERENCES "Contact" ("contact_id");
+ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_contact_id" FOREIGN KEY("contact_id")
+REFERENCES "contact" ("contact_id");
 
-ALTER TABLE "Campaign" ADD CONSTRAINT "fk_Campaign_category_id" FOREIGN KEY("category_id")
-REFERENCES "Category" ("category_id");
+ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_category_id" FOREIGN KEY("category_id")
+REFERENCES "category" ("category_id");
 
-ALTER TABLE "Campaign" ADD CONSTRAINT "fk_Campaign_subcategory_id" FOREIGN KEY("subcategory_id")
-REFERENCES "Sub_Category" ("subcateogry_id");
+ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_subcategory_id" FOREIGN KEY("subcategory_id")
+REFERENCES "sub_category" ("subcategory_id");
 
